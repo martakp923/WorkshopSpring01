@@ -1,17 +1,15 @@
 package pl.coderslab;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Book {
 
     private Long id;
-
     private String isbn;
-
     private String title;
-
     private String author;
-
     private String publisher;
-
     private String type;
 
     public Long getId() {
@@ -62,9 +60,13 @@ public class Book {
         this.type = type;
     }
 
-    public Book() {
-    }
-    public Book(Long id, String isbn, String title, String author, String publisher, String type) {
+    @JsonCreator
+    public Book(@JsonProperty("id") Long id,
+                @JsonProperty("isbn") String isbn,
+                @JsonProperty("title") String title,
+                @JsonProperty("author") String author,
+                @JsonProperty("publisher") String publisher,
+                @JsonProperty("type") String type) {
         this.id = id;
         this.isbn = isbn;
         this.title = title;
