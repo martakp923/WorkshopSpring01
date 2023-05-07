@@ -8,7 +8,7 @@ public interface BookService {
     List<Book> getBooks();
     Optional<Book> get(long id);
 
-    void add(Book book);
-    void delete(Long id);
-    void update(Book book);
+    void addBook(Book book);
+    void deleteBook(Long id);
+    void updateBook(Book book);
 }

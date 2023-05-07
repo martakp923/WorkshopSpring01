@@ -34,20 +34,20 @@ public class MockBookService implements BookService {
     private static Long nextId = 4L;
 
     @Override
-    public void add(Book book) {
+    public void addBook(Book book) {
         book.setId(nextId++);
         books.add(book);
 
     }
 
     @Override
-    public void delete(Long id) {
+    public void deleteBook(Long id) {
         if (get(id).isPresent()) {
             books.remove(this.get(id).get());
         }
     }
     @Override
-    public void update(Book book) {
+    public void updateBook(Book book) {
         if (this.get(book.getId()).isPresent()) {
             int index = books.indexOf(this.get(book.getId()).get());
             books.set(index, book);
